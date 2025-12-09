@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - SSS</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        .content-section { display: none; padding: 20px; border: 2px solid #667eea; margin: 20px 0; }
+        .content-section.active { display: block; }
+    </style>
+</head>
+<body>
+    <h1>SSS Test</h1>
+    <button id="btn-sss">SSS</button>
+    
+    <section id="sss" class="content-section">
+        <h2>SSS İçeriği</h2>
+        <p>Bu metin görünüyor mu?</p>
+    </section>
+
+    <script>
+        document.getElementById('btn-sss').addEventListener('click', function() {
+            const section = document.getElementById('sss');
+            section.classList.add('active');
+            console.log('SSS butonu tıklandı!');
+            console.log('Section element:', section);
+            console.log('Has active class:', section.classList.contains('active'));
+        });
+    </script>
+</body>
+</html>
