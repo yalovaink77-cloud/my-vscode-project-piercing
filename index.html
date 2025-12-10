@@ -11,6 +11,29 @@
         <header>
             <h1>💉 Piercing Rehberi</h1>
             <p>Piercing'inle ilgili bilmen gereken her şey burada!</p>
+
+            <div class="hero-intro">
+                <h2>Kişisel Piercing Asistanın</h2>
+                <p>
+                    Acı seviyelerini öğren, bakım rehberine göz at ve tüm piercing'lerinin
+                    iyileşme sürecini tek bir yerden takip et.
+                </p>
+
+                <div class="hero-actions">
+                    <button id="hero-start-tracking" class="hero-btn primary">
+                        📝 Piercing Takibini Başlat
+                    </button>
+                    <button id="hero-see-pain" class="hero-btn secondary">
+                        🔥 Acı seviyelerine bak
+                    </button>
+                </div>
+
+                <div class="hero-quick-links">
+                    <button id="hero-quick-types" class="hero-chip">📌 Piercing türlerini keşfet</button>
+                    <button id="hero-quick-care" class="hero-chip">🧼 Bakım rehberine göz at</button>
+                    <button id="hero-quick-tracking" class="hero-chip">💾 Kişisel takip listem</button>
+                </div>
+            </div>
         </header>
 
        <nav>
@@ -756,7 +779,7 @@
 
                     <div class="faq-item">
                         <h3>🎂 18 yaş altı piercing yaptırabilir mi?</h3>
-                        <p>Hayır, Türkiye'de 18 yaş altı için ebeveyn onayı ve eşliği şarttır. Yasal sınırlamalar vardır ve profesyonel piercer'lar bu kurallara uymak zorundadır.</p>
+                        <p>Hayır, 18 yaş altı için ebeveyn onayı ve eşliği şarttır. Yasal sınırlamalar vardır ve profesyonel piercer'lar bu kurallara uymak zorundadır (Dünya Sağlık Örgütü - WHO tavsiyeleriyle uyumlu olarak).</p>
                     </div>
 
                     <div class="faq-item">
@@ -899,6 +922,16 @@
                         ➕ Yeni Piercing Ekle
                     </button>
 
+                    <!-- Dışa Aktarma Butonları -->
+                    <div class="export-buttons">
+                        <button id="export-json-btn" class="btn-export">
+                            💾 JSON Olarak İndir
+                        </button>
+                        <button id="export-csv-btn" class="btn-export btn-export-secondary">
+                            📊 CSV Olarak İndir
+                        </button>
+                    </div>
+
                     <!-- Piercing Formu (Başlangıçta Gizli) -->
                     <div id="piercing-form" class="piercing-form hidden">
                         <h3>Yeni Piercing Ekle</h3>
@@ -983,6 +1016,6 @@
         </footer>
     </div>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=11"></script>
 </body>
 </html>

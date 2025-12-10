@@ -39,6 +39,94 @@ header p {
     opacity: 0.95;
 }
 
+.hero-intro {
+    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 20px 25px 25px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-intro h2 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.hero-intro p {
+    font-size: 1em;
+    opacity: 0.9;
+    margin-bottom: 18px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.hero-btn {
+    border-radius: 999px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+}
+
+.hero-btn.primary {
+    background: #ffffff;
+    color: #5a55ea;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hero-btn.primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.hero-btn.secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.hero-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.hero-quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.hero-chip {
+    border-radius: 999px;
+    border: none;
+    padding: 6px 14px;
+    font-size: 0.85em;
+    background: rgba(255, 255, 255, 0.12);
+    color: #f5f5f5;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hero-chip:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
 nav {
     display: flex;
     justify-content: center;
@@ -560,6 +648,36 @@ h2 {
     transform: translateY(-2px);
 }
 
+/* Kart renk varyasyonları (türe göre) */
+.piercing-card--ear {
+    border-color: #6c63ff;
+    background: linear-gradient(135deg, #f5f3ff, #ffffff);
+}
+
+.piercing-card--nose {
+    border-color: #ff6fb5;
+    background: linear-gradient(135deg, #fff0f6, #ffffff);
+}
+
+.piercing-card--tongue {
+    border-color: #ff9800;
+    background: linear-gradient(135deg, #fff4e0, #ffffff);
+}
+
+.piercing-card--navel {
+    border-color: #26c6da;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff);
+}
+
+.piercing-card--body {
+    border-color: #8bc34a;
+    background: linear-gradient(135deg, #f1f8e9, #ffffff);
+}
+
+.piercing-card--default {
+    border-color: #e0e0e0;
+}
+
 .piercing-card-header {
     display: flex;
     justify-content: space-between;
@@ -580,6 +698,14 @@ h2 {
 .piercing-card-title .location {
     color: #666;
     font-size: 0.95em;
+}
+
+.piercing-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: wrap;
 }
 
 .piercing-card-actions {
@@ -663,11 +789,39 @@ h2 {
     display: inline-block;
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.9em;
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 0.85em;
     font-weight: bold;
-    margin-top: 10px;
+}
+
+.piercing-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.piercing-badge.badge-new {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.piercing-badge.badge-healing {
+    background: #fff8e1;
+    color: #ff8f00;
+}
+
+.piercing-badge.badge-stable {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.piercing-badge.badge-warning {
+    background: #ffebee;
+    color: #c62828;
 }
 
 /* Boş Durum */
@@ -696,6 +850,45 @@ h2 {
 
 .empty-state p {
     color: #999;
+}
+
+/* Dışa aktarma butonları */
+.export-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-export {
+    flex: 1;
+    min-width: 140px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 2px solid #667eea;
+    background: #fff;
+    color: #667eea;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-export:hover {
+    background: #667eea;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-export-secondary {
+    border-color: #ff9800;
+    color: #ff9800;
+}
+
+.btn-export-secondary:hover {
+    background: #ff9800;
+    color: #fff;
 }
 
 /* Bakım İpuçları */

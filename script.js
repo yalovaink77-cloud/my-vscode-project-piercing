@@ -7,36 +7,104 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnGercekler = document.getElementById('btn-gercekler');
     const btnSss = document.getElementById('btn-sss');
     const btnTakip = document.getElementById('btn-takip');
-    
-    // Her butona tıklama olayı ekle
-    btnAci.addEventListener('click', function() {
-        showSection('aci', this);
-    });
-    
-    btnTurler.addEventListener('click', function() {
-        showSection('turler', this);
-    });
-    
-    btnBakim.addEventListener('click', function() {
-        showSection('bakim', this);
-    });
-    
-    btnMalzemeler.addEventListener('click', function() {
-        showSection('malzemeler', this);
-    });
-    
-    btnGercekler.addEventListener('click', function() {
-        showSection('gercekler', this);
-    });
-    
-    btnSss.addEventListener('click', function() {
-        console.log('SSS butonu tıklandı!');
-        showSection('sss', this);
-    });
 
-    btnTakip.addEventListener('click', function() {
-        showSection('takip', this);
+    // Hero butonları
+    const heroStartTracking = document.getElementById('hero-start-tracking');
+    const heroSeePain = document.getElementById('hero-see-pain');
+    const heroQuickTypes = document.getElementById('hero-quick-types');
+    const heroQuickCare = document.getElementById('hero-quick-care');
+    const heroQuickTracking = document.getElementById('hero-quick-tracking');
+
+    console.log('Navbar butonları:', {
+        btnAci,
+        btnTurler,
+        btnBakim,
+        btnMalzemeler,
+        btnGercekler,
+        btnSss,
+        btnTakip,
+        heroStartTracking,
+        heroSeePain,
+        heroQuickTypes,
+        heroQuickCare,
+        heroQuickTracking
     });
+    
+    // Her butona tıklama olayı ekle (buton varsa)
+    if (btnAci) {
+        btnAci.addEventListener('click', function() {
+            showSection('aci', this);
+        });
+    }
+    
+    if (btnTurler) {
+        btnTurler.addEventListener('click', function() {
+            showSection('turler', this);
+        });
+    }
+    
+    if (btnBakim) {
+        btnBakim.addEventListener('click', function() {
+            showSection('bakim', this);
+        });
+    }
+    
+    if (btnMalzemeler) {
+        btnMalzemeler.addEventListener('click', function() {
+            showSection('malzemeler', this);
+        });
+    }
+    
+    if (btnGercekler) {
+        btnGercekler.addEventListener('click', function() {
+            showSection('gercekler', this);
+        });
+    }
+    
+    if (btnSss) {
+        btnSss.addEventListener('click', function() {
+            console.log('SSS butonu tıklandı!');
+            showSection('sss', this);
+        });
+    }
+
+    if (btnTakip) {
+        btnTakip.addEventListener('click', function() {
+            console.log('Takip butonu tıklandı!');
+            showSection('takip', this);
+        });
+    }
+
+    // Hero alanındaki butonlar
+    if (heroStartTracking) {
+        heroStartTracking.addEventListener('click', function() {
+            showSection('takip', btnTakip || null);
+        });
+    }
+
+    if (heroSeePain) {
+        heroSeePain.addEventListener('click', function() {
+            showSection('aci', btnAci || null);
+        });
+    }
+
+    if (heroQuickTypes) {
+        heroQuickTypes.addEventListener('click', function() {
+            showSection('turler', btnTurler || null);
+        });
+    }
+
+    if (heroQuickCare) {
+        heroQuickCare.addEventListener('click', function() {
+            showSection('bakim', btnBakim || null);
+        });
+    }
+
+    if (heroQuickTracking) {
+        heroQuickTracking.addEventListener('click', function() {
+            showSection('takip', btnTakip || null);
+        });
+    }
     
     // Bölüm gösterme fonksiyonu
     function showSection(sectionId, clickedButton) {
@@ -59,6 +127,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (targetSection) {
             targetSection.classList.add('active');
             console.log('Active class eklendi');
+
+            // Bölüm değiştiğinde ekranın ilgili kısma kaydırılması
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         } else {
             console.log('HATA: Section bulunamadı!', sectionId);
         }
@@ -106,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelPiercingBtn = document.getElementById('cancel-piercing-btn');
     const piercingList = document.getElementById('piercing-list');
     const emptyState = document.getElementById('empty-state');
+    const exportJsonBtn = document.getElementById('export-json-btn');
+    const exportCsvBtn = document.getElementById('export-csv-btn');
 
     // Form Inputları
     const piercingType = document.getElementById('piercing-type');
@@ -114,22 +190,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const piercingPiercer = document.getElementById('piercing-piercer');
     const piercingNotes = document.getElementById('piercing-notes');
 
-    // Bugünün tarihi için default değer
-    piercingDate.max = new Date().toISOString().split('T')[0];
+    // Takip sistemi elementleri varsa çalıştır
+    if (addPiercingBtn && piercingForm && piercingDate) {
+        
+        // Bugünün tarihi için default değer
+        piercingDate.max = new Date().toISOString().split('T')[0];
 
-    // Form Göster/Gizle
-    addPiercingBtn.addEventListener('click', function() {
-        piercingForm.classList.remove('hidden');
-        editingId = null;
-        clearForm();
-        piercingForm.scrollIntoView({ behavior: 'smooth' });
-    });
+        // Form Göster/Gizle
+        addPiercingBtn.addEventListener('click', function() {
+            piercingForm.classList.remove('hidden');
+            editingId = null;
+            clearForm();
+            piercingForm.scrollIntoView({ behavior: 'smooth' });
+        });
 
-    cancelPiercingBtn.addEventListener('click', function() {
-        piercingForm.classList.add('hidden');
-        editingId = null;
-        clearForm();
-    });
+        cancelPiercingBtn.addEventListener('click', function() {
+            piercingForm.classList.add('hidden');
+            editingId = null;
+            clearForm();
+        });
 
     // Piercing Kaydet
     savePiercingBtn.addEventListener('click', function() {
@@ -219,6 +298,46 @@ document.addEventListener('DOMContentLoaded', function() {
         return diffDays;
     }
 
+    // Tür bazlı ikon ve renk bilgisi
+    function getTypeMeta(type) {
+        const value = (type || '').toLowerCase();
+        let icon = '💫';
+        let colorClass = 'piercing-card--default';
+
+        if (value.includes('kulak') || value.includes('helix') || value.includes('tragus') || value.includes('daith') || value.includes('industrial')) {
+            icon = '🦻';
+            colorClass = 'piercing-card--ear';
+        } else if (value.includes('burun') || value.includes('septum')) {
+            icon = '👃';
+            colorClass = 'piercing-card--nose';
+        } else if (value.includes('dil')) {
+            icon = '👅';
+            colorClass = 'piercing-card--tongue';
+        } else if (value.includes('göbek')) {
+            icon = '✨';
+            colorClass = 'piercing-card--navel';
+        } else if (value.includes('meme')) {
+            icon = '💎';
+            colorClass = 'piercing-card--body';
+        }
+
+        return { icon, colorClass };
+    }
+
+    // Durum rozeti (badge) bilgisi
+    function getStatusMeta(daysSince) {
+        if (daysSince <= 3) {
+            return { label: 'Dikkat', className: 'badge-warning' };
+        }
+        if (daysSince <= 14) {
+            return { label: 'Yeni', className: 'badge-new' };
+        }
+        if (daysSince <= 60) {
+            return { label: 'İyileşme', className: 'badge-healing' };
+        }
+        return { label: 'Oturmuş', className: 'badge-stable' };
+    }
+
     // Piercingleri Listele
     function renderPiercings() {
         piercingList.innerHTML = '';
@@ -235,14 +354,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         sortedPiercings.forEach(piercing => {
             const daysSince = calculateDaysSince(piercing.date);
+            const { icon, colorClass } = getTypeMeta(piercing.type);
+            const status = getStatusMeta(daysSince);
+
             const card = document.createElement('div');
-            card.className = 'piercing-card';
+            card.className = `piercing-card ${colorClass}`;
             
             card.innerHTML = `
                 <div class="piercing-card-header">
                     <div class="piercing-card-title">
-                        <h3>${piercing.type}</h3>
+                        <h3>${icon} ${piercing.type}</h3>
                         ${piercing.location ? `<div class="location">📍 ${piercing.location}</div>` : ''}
+                        <div class="piercing-card-meta">
+                            <span class="piercing-badge ${status.className}">${status.label}</span>
+                            <span class="days-since">⏱️ ${daysSince} gün önce</span>
+                        </div>
                     </div>
                     <div class="piercing-card-actions">
                         <button class="btn-edit" onclick="editPiercing(${piercing.id})">✏️ Düzenle</button>
@@ -267,10 +393,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     ` : ''}
                 </div>
 
-                <div class="days-since">
-                    ⏱️ ${daysSince} gün önce
-                </div>
-
                 ${piercing.notes ? `
                 <div class="piercing-card-notes">
                     <h4>📝 Notlar:</h4>
@@ -283,10 +405,83 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Dosya indirme yardımcı fonksiyonu
+    function downloadFile(filename, content, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function exportAsJson() {
+        if (!piercings.length) {
+            alert('📭 Henüz kaydedilmiş piercing yok.');
+            return;
+        }
+        const data = JSON.stringify(piercings, null, 2);
+        const todayStr = new Date().toISOString().split('T')[0];
+        downloadFile(`piercings-${todayStr}.json`, data, 'application/json');
+    }
+
+    function toCsvRow(cells) {
+        return cells
+            .map(value => {
+                const v = String(value ?? '').replace(/\r?\n/g, ' ');
+                const escaped = v.replace(/"/g, '""');
+                return `"${escaped}"`;
+            })
+            .join(',');
+    }
+
+    function exportAsCsv() {
+        if (!piercings.length) {
+            alert('📭 Henüz kaydedilmiş piercing yok.');
+            return;
+        }
+
+        const header = ['ID', 'Tür', 'Konum', 'Tarih', 'Piercer', 'Notlar', 'Gün Farkı'];
+        const rows = piercings.map(p => {
+            const days = calculateDaysSince(p.date);
+            return [
+                p.id,
+                p.type,
+                p.location || '',
+                p.date,
+                p.piercer || '',
+                p.notes || '',
+                days
+            ];
+        });
+
+        const csv = [
+            toCsvRow(header),
+            ...rows.map(toCsvRow)
+        ].join('\n');
+
+        const todayStr = new Date().toISOString().split('T')[0];
+        downloadFile(`piercings-${todayStr}.csv`, csv, 'text/csv');
+    }
+
+    // Dışa aktarma butonları olayları
+    if (exportJsonBtn) {
+        exportJsonBtn.addEventListener('click', exportAsJson);
+    }
+
+    if (exportCsvBtn) {
+        exportCsvBtn.addEventListener('click', exportAsCsv);
+    }
+
     // Global fonksiyonlar (HTML'den erişilebilir)
     window.deletePiercing = deletePiercing;
     window.editPiercing = editPiercing;
 
     // Sayfa yüklendiğinde piercingleri göster
     renderPiercings();
+    
+    } // if bloğu sonu - Takip sistemi elementleri varsa
 });
