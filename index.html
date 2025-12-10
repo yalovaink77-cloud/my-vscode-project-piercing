@@ -20,6 +20,7 @@
     <button class="nav-btn" id="btn-malzemeler">🛍️ Malzemeler</button>
     <button class="nav-btn" id="btn-gercekler">💡 Gerçekler</button>
     <button class="nav-btn" id="btn-sss">❓ SSS</button>
+    <button class="nav-btn" id="btn-takip">📝 Takip</button>
 </nav>
 
         <main>
@@ -881,6 +882,97 @@
                         <li>🏥 En yakın hastaneye git</li>
                         <li>🚨 Acil: 112</li>
                     </ul>
+                </div>
+            </section>
+
+            <!-- KİŞİSEL TAKİP -->
+            <section id="takip" class="content-section">
+                <h2>📝 Kişisel Piercing Takip</h2>
+                
+                <div class="tracker-container">
+                    <div class="tracker-intro">
+                        <p>Piercing'lerinin iyileşme sürecini takip et! Her piercing'in tarihini, türünü ve notlarını kaydet.</p>
+                    </div>
+
+                    <!-- Piercing Ekle Butonu -->
+                    <button id="add-piercing-btn" class="add-piercing-btn">
+                        ➕ Yeni Piercing Ekle
+                    </button>
+
+                    <!-- Piercing Formu (Başlangıçta Gizli) -->
+                    <div id="piercing-form" class="piercing-form hidden">
+                        <h3>Yeni Piercing Ekle</h3>
+                        
+                        <div class="form-group">
+                            <label>Piercing Türü *</label>
+                            <select id="piercing-type">
+                                <option value="">Seç...</option>
+                                <option value="Kulak Memesi (Lobe)">Kulak Memesi (Lobe)</option>
+                                <option value="Helix">Helix</option>
+                                <option value="Tragus">Tragus</option>
+                                <option value="Daith">Daith</option>
+                                <option value="Industrial">Industrial</option>
+                                <option value="Burun (Nostril)">Burun (Nostril)</option>
+                                <option value="Septum">Septum</option>
+                                <option value="Labret">Labret</option>
+                                <option value="Monroe/Madonna">Monroe/Madonna</option>
+                                <option value="Medusa">Medusa</option>
+                                <option value="Dil">Dil</option>
+                                <option value="Göbek">Göbek</option>
+                                <option value="Meme Ucu">Meme Ucu</option>
+                                <option value="Diğer">Diğer</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Konum</label>
+                            <input type="text" id="piercing-location" placeholder="Örn: Sağ kulak, Sol burun...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tarih *</label>
+                            <input type="date" id="piercing-date">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Piercer / Stüdyo</label>
+                            <input type="text" id="piercing-piercer" placeholder="Piercer adı veya stüdyo...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Notlar</label>
+                            <textarea id="piercing-notes" rows="3" placeholder="Malzeme, bakım notları, deneyimler..."></textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button id="save-piercing-btn" class="btn-save">✅ Kaydet</button>
+                            <button id="cancel-piercing-btn" class="btn-cancel">❌ İptal</button>
+                        </div>
+                    </div>
+
+                    <!-- Piercing Listesi -->
+                    <div id="piercing-list" class="piercing-list">
+                        <!-- Buraya dinamik olarak piercingler eklenecek -->
+                    </div>
+
+                    <!-- Boş Durum Mesajı -->
+                    <div id="empty-state" class="empty-state">
+                        <div class="empty-icon">💉</div>
+                        <h3>Henüz piercing eklenmemiş</h3>
+                        <p>Yukarıdaki butona tıklayarak ilk piercing'ini ekle!</p>
+                    </div>
+
+                    <!-- Bakım İpuçları -->
+                    <div class="care-tips">
+                        <h3>💡 Bakım İpuçları</h3>
+                        <ul>
+                            <li>✅ Günde 2 kez tuzlu su ile temizle</li>
+                            <li>✅ Ellerini yıkamadan dokunma</li>
+                            <li>✅ İlk 2 ay havuz, deniz, sauna yasak</li>
+                            <li>❌ Takıyı gereksiz yere elleme veya döndürme</li>
+                            <li>❌ Alkol veya hidrojen peroksit kullanma</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
         </main>
