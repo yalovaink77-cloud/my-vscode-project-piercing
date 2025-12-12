@@ -1,46 +1,64 @@
-from flask import Flask, request, jsonify
-from datetime import datetime, timedelta, UTC
+from flask import Flask, request, jsonify, render_template_string
+import redis
 
 app = Flask(__name__)
-
-# Basit, bellek içi token takibi (Redis gerektirmez)
-TOKEN_TTL_SECONDS = 300  # 5 dakika
-used_tokens = {}  # token -> son_kullanım_zamani
-
-
-def is_token_used(token: str) -> bool:
-    """Token daha önce kullanıldı mı ve süresi dolmadı mı?"""
-    info = used_tokens.get(token)
-    if not info:
-        return False
-
-    expires_at = info["expires_at"]
-    if datetime.now(UTC) > expires_at:
-        # Süresi dolmuş, temizle
-        del used_tokens[token]
-        return False
-
-    return True
+r = redis.Redis(host="localhost", port=6379)
 
 
 @app.route("/redeem", methods=["POST"])
 def redeem():
-    data = request.get_json(silent=True) or {}
-    token = data.get("token")
-
+    token = (request.json or {}).get("token")
     if not token:
         return jsonify({"error": "Token zorunlu"}), 400
 
-    if is_token_used(token):
+    if r.get(token) == b"used":
         return jsonify({"error": "Token already used"}), 403
 
-    # İlk kez veya süresi dolmuş token: kullanılmış olarak işaretle
-    used_tokens[token] = {
-        "expires_at": datetime.now(UTC) + timedelta(seconds=TOKEN_TTL_SECONDS)
-    }
+    r.set(token, "used", ex=300)  # 5 dakika TTL
+    return jsonify({"success": "Redeemed"}), 200
 
-    # Burada gerçek işlemini yapabilirsin (içerik gösterme vs.)
-    return jsonify({"success": "Redeemed", "token": token}), 200
+
+@app.route("/redeem/<token>", methods=["GET"])
+def redeem_page(token):
+    """QR veya tarayıcı ile açılan HTML sayfası."""
+    was_used_before = r.get(token) == b"used"
+    if not was_used_before:
+        # İlk kez kullanılıyorsa işaretle
+        r.set(token, "used", ex=300)
+
+    html = """
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Kupon Durumu</title>
+        <style>
+            body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#111827; color:#e5e7eb; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; }
+            .card { background:#1f2937; padding:32px 28px; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.35); max-width:360px; text-align:center; }
+            h1 { font-size:20px; margin-bottom:8px; }
+            p { margin:4px 0 18px; font-size:14px; color:#9ca3af; }
+            .status { font-weight:600; margin-bottom:18px; }
+            .status.ok { color:#22c55e; }
+            .status.used { color:#f97316; }
+            code { font-size:13px; background:#111827; padding:2px 6px; border-radius:6px; }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <h1>QR / Kupon Durumu</h1>
+            <p>Bu sayfa bir QR kodu veya özel link ile açıldı.</p>
+            {% if used %}
+                <div class="status used">Bu kod daha önce kullanılmış.</div>
+            {% else %}
+                <div class="status ok">Kod başarıyla kullanıldı. Hoş geldin!</div>
+            {% endif %}
+            <p>Kod: <code>{{ token }}</code></p>
+        </div>
+    </body>
+    </html>
+    """
+
+    return render_template_string(html, token=token, used=was_used_before)
 
 
 if __name__ == "__main__":
