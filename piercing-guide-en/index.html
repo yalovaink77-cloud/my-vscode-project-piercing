@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piercing Guide - Complete Knowledge Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="language-switch" aria-label="Language selection">
+            <a class="language-switch__option" href="../index.html">
+                <span class="flag">🇹🇷</span>
+                <span class="code">TR</span>
+            </a>
+            <a class="language-switch__option is-active" href="index.html" aria-current="page">
+                <span class="flag">🇬🇧</span>
+                <span class="code">EN</span>
+            </a>
+        </div>
+        <header>
+            <div class="brand-logo">
+                <img src="assets/piercingconnect-logo.png" alt="PiercingConnect logo">
+            </div>
+            <h1>PiercingGuide</h1>
+            <p>Everything you need to plan, care for, and track your piercings.</p>
+
+            <div class="hero-intro">
+                <h2>Your Personal Piercing Assistant</h2>
+                <p>
+                    Compare pain levels, scan the aftercare playbook, and keep a clean log of every piercing you own—all from a single dashboard.
+                </p>
+
+                <div class="hero-actions">
+                    <button id="hero-start-tracking" class="hero-btn primary">
+                        📝 Start Tracking
+                    </button>
+                    <button id="hero-see-pain" class="hero-btn secondary">
+                        🔥 Explore Pain Levels
+                    </button>
+                </div>
+
+                <div class="hero-quick-links">
+                    <button id="hero-quick-types" class="hero-chip">📌 Discover Piercing Types</button>
+                    <button id="hero-quick-care" class="hero-chip">🧼 View Aftercare Checklist</button>
+                    <button id="hero-quick-tracking" class="hero-chip">💾 Open My Tracker</button>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <button class="nav-btn active" id="btn-aci">🔥 Pain Map</button>
+            <button class="nav-btn" id="btn-turler">📌 Piercing Types</button>
+            <button class="nav-btn" id="btn-bakim">🧼 Aftercare</button>
+            <button class="nav-btn" id="btn-malzemeler">🛍️ Supplies</button>
+            <button class="nav-btn" id="btn-gercekler">💡 Insights</button>
+            <button class="nav-btn" id="btn-sss">❓ FAQ</button>
+            <button class="nav-btn" id="btn-takip">📝 Tracker</button>
+        </nav>
+
+        <main>
+            <!-- PAIN LEVELS -->
+            <section id="aci" class="content-section active">
+                <h2>🔥 Pain Map</h2>
+                <p class="section-intro">Each piercing hits differently. Use this map to manage expectations before you sit in the chair.</p>
+                
+                <div class="pain-levels">
+                    <div class="pain-card low">
+                        <h3>Low Pain (1-3/10)</h3>
+                        <ul>
+                            <li><strong>Earlobe:</strong> Quick pinch, heals fast.</li>
+                            <li><strong>Eyebrow:</strong> Very manageable, minimal pressure.</li>
+                            <li><strong>Sublingual:</strong> Surprisingly mild when performed correctly.</li>
+                        </ul>
+                        <p class="healing-time">⏱️ Healing: 4-6 weeks</p>
+                    </div>
+                    
+                    <div class="pain-card medium">
+                        <h3>Moderate Pain (4-6/10)</h3>
+                        <ul>
+                            <li><strong>Nostril:</strong> Expect watery eyes; quick sting.</li>
+                            <li><strong>Labret & Monroe:</strong> Soft tissue but sensitive nerves.</li>
+                            <li><strong>Tongue:</strong> Swelling is tougher than the piercing.</li>
+                            <li><strong>Helix & Conch:</strong> Cartilage adds a steady burn.</li>
+                        </ul>
+                        <p class="healing-time">⏱️ Healing: 6-12 weeks</p>
+                    </div>
+                    
+                    <div class="pain-card high">
+                        <h3>High Pain (7-10/10)</h3>
+                        <ul>
+                            <li><strong>Septum:</strong> Sweet spot = 6/10, miss the spot = 9/10.</li>
+                            <li><strong>Daith:</strong> Thickest cartilage in the ear.</li>
+                            <li><strong>Industrial:</strong> Two piercings at once with a shared bar.</li>
+                            <li><strong>Navel:</strong> Depends on anatomy and tension.</li>
+                            <li><strong>Nipple & Genital:</strong> Maximum nerve density.</li>
+                        </ul>
+                        <p class="healing-time">⏱️ Healing: 3-12 months</p>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h3>💡 Pain Management Tips</h3>
+                    <ul>
+                        <li>Eat something light and stay hydrated before your appointment.</li>
+                        <li>Avoid alcohol or caffeine the day of the piercing.</li>
+                        <li>Show up rested; tired bodies process pain poorly.</li>
+                        <li>Practice steady breathing—inhale as the needle enters, exhale as it exits.</li>
+                        <li>Dress for easy access to the piercing site.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PIERICING TYPES -->
+            <section id="turler" class="content-section">
+                <h2>📌 Piercing Types</h2>
+                
+                <div class="piercing-category">
+                    <h3>👂 Ear Piercings</h3>
+                    <div class="piercing-item">
+                        <h4>Lobe</h4>
+                        <p><strong>Pain:</strong> 1-2/10 | <strong>Healing:</strong> 4-6 weeks</p>
+                        <p>Classic starter piercing. Minimal pain, perfect for stacked jewelry looks.</p>
+                    </div>
+                    
+                    <div class="piercing-item">
+                        <h4>Helix</h4>
+                        <p><strong>Pain:</strong> 2-5/10 | <strong>Healing:</strong> 3-6 months</p>
+                        <p>Upper cartilage. Expect a slow burn and longer healing window.</p>
+                    </div>
+                    
+                    <div class="piercing-item">
+                        <h4>Tragus</h4>
+                        <p><strong>Pain:</strong> 3-5/10 | <strong>Healing:</strong> 3-6 months</p>
+                        <p>Tiny cartilage flap at the ear canal. Stylish but requires gentle aftercare.</p>
+                    </div>
+                    
+                    <div class="piercing-item">
+                        <h4>Daith</h4>
+                        <p><strong>Pain:</strong> 6-7/10 | <strong>Healing:</strong> 6-9 months</p>
+                        <p>Deep inner cartilage. Rumored to help migraines (no clinical proof).</p>
+                    </div>
+                    
+                    <div class="piercing-item">
+                        <h4>Industrial</h4>
+                        <p><strong>Pain:</strong> 8/10 | <strong>Healing:</strong> 6-12 months</p>
+                        <p>A long bar connecting two cartilage piercings. Dramatic look, high commitment.</p>
+                    </div>
+                </div>
+
+                <div class="piercing-category">
+                    <h3>👃 Nose Piercings</h3>
+                    <div class="piercing-item">
+                        <h4>Nostril</h4>
+                        <p><strong>Pain:</strong> 3-5/10 | <strong>Healing:</strong> 2-4 months</p>
+                        <p>Versatile placement; studs, hoops, and chains all shine here.</p>
+                    </div>
+                    
+                    <div class="piercing-item">
+                        <h4>Septum</h4>
+                        <p><strong>Pain:</strong> 6-9/10 | <strong>Healing:</strong> 2-3 months</p>
+                        <p>Hidden “sweet spot” between cartilage layers allows comfortable flipping.</p>
+                    </div>
+                </div>
+
+                <div class="piercing-category">
+                    <h3>👄 Lip Piercings</h3>
+                    <div class="piercing-item">
+                        <h4>Labret</h4>
+                        <p><strong>Pain:</strong> 5-7/10 | <strong>Healing:</strong> 6-8 weeks</p>
+                        <p>Centered under the lip. Swelling is normal—stick to soft foods.</p>
+                    </div>
+                    
+                    <div class="piercing-item">
+                        <h4>Monroe / Madonna</h4>
+                        <p><strong>Pain:</strong> 5-7/10 | <strong>Healing:</strong> 6-12 weeks</p>
+                        <p>Upper lip beauty mark inspired by Marilyn Monroe. Bold yet classy.</p>
+                    </div>
+                    
+                    <div class="piercing-item">
+                        <h4>Medusa</h4>
+                        <p><strong>Pain:</strong> 6-7/10 | <strong>Healing:</strong> 8-12 weeks</p>
+                        <p>Centered in the philtrum. Demands balanced anatomy for best results.</p>
+                    </div>
+                </div>
+
+                <div class="piercing-category">
+                    <h3>👅 Other Favorites</h3>
+                    <div class="piercing-item">
+                        <h4>Tongue</h4>
+                        <p><strong>Pain:</strong> 6-8/10 | <strong>Healing:</strong> 4-6 weeks</p>
+                        <p>Intense swelling for the first 3-5 days; icing and cold drinks help.</p>
+                    </div>
+                    
+                    <div class="piercing-item">
+                        <h4>Navel</h4>
+                        <p><strong>Pain:</strong> 6-8/10 | <strong>Healing:</strong> 6-12 months</p>
+                        <p>Seasonal favorite. Watch for friction from waistbands or belts.</p>
+                    </div>
+                    
+                    <div class="piercing-item">
+                        <h4>Nipple</h4>
+                        <p><strong>Pain:</strong> 7-8/10 | <strong>Healing:</strong> 6-12 months</p>
+                        <p>Choose implant-grade materials. Expect hypersensitivity for weeks.</p>
+                    </div>
+
+                    <div class="piercing-item">
+                        <h4>Dermal & Surface</h4>
+                        <p><strong>Pain:</strong> 8-10/10 | <strong>Healing:</strong> 6-12 months</p>
+                        <p>High-risk placements. Must be performed by experienced artists only.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>📊 Pain Comparison</h3>
+                    <table class="pain-comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Piercing</th>
+                                <th>Pain Score</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Earlobe</td>
+                                <td>1-2/10</td>
+                                <td>Best option for your first piercing.</td>
+                            </tr>
+                            <tr>
+                                <td>Nostril</td>
+                                <td>3-5/10</td>
+                                <td>Brief sting, manageable swelling.</td>
+                            </tr>
+                            <tr>
+                                <td>Helix / Tragus</td>
+                                <td>2-5/10</td>
+                                <td>Cartilage = longer healing timeline.</td>
+                            </tr>
+                            <tr>
+                                <td>Labret</td>
+                                <td>5-7/10</td>
+                                <td>Soft tissue but packed with nerves.</td>
+                            </tr>
+                            <tr>
+                                <td>Tongue / Navel</td>
+                                <td>6-8/10</td>
+                                <td>Swelling and friction management.</td>
+                            </tr>
+                            <tr>
+                                <td>Nipple</td>
+                                <td>7-8/10</td>
+                                <td>Very sensitive anatomy.</td>
+                            </tr>
+                            <tr>
+                                <td>Dermal / Genital</td>
+                                <td>8-10/10</td>
+                                <td>Advanced experience required.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- AFTERCARE -->
+            <section id="bakim" class="content-section">
+                <h2>🧼 Aftercare Playbook</h2>
+                
+                <div class="care-guide">
+                    <div class="care-section">
+                        <h3>✅ Daily Routine</h3>
+                        <ol>
+                            <li><strong>Wash Your Hands:</strong> Antibacterial soap before any touch.</li>
+                            <li><strong>Mix Saline:</strong> 1 cup warm water + 1/4 tsp non-iodized sea salt.</li>
+                            <li><strong>Clean:</strong> Soak a sterile pad and gently compress twice a day.</li>
+                            <li><strong>Dry:</strong> Pat with lint-free paper towels only.</li>
+                            <li><strong>Repeat:</strong> Morning and evening throughout the healing phase.</li>
+                        </ol>
+                    </div>
+
+                    <div class="care-section danger">
+                        <h3>❌ Never Do This</h3>
+                        <ul>
+                            <li>Touch the jewelry with dirty hands.</li>
+                            <li>Rotate, flip, or remove the jewelry “to clean it.”</li>
+                            <li>Use alcohol, hydrogen peroxide, or povidone-iodine.</li>
+                            <li>Swim in pools, hot tubs, or lakes for the first 2 months.</li>
+                            <li>Apply makeup directly over the piercing.</li>
+                            <li>Share towels, bedding, or oral contact for fresh piercings.</li>
+                        </ul>
+                    </div>
+
+                    <div class="care-section">
+                        <h3>🩺 Watch for Infection</h3>
+                        <p>Call your piercer (and a doctor if needed) if you notice:</p>
+                        <ul>
+                            <li>Hot, spreading redness or heat.</li>
+                            <li>Pus that is thick, yellow, or green.</li>
+                            <li>Fever over 38°C (100.4°F).</li>
+                            <li>Severe throbbing pain or swelling that won’t settle.</li>
+                            <li>Foul odor or streaking.</li>
+                        </ul>
+                        <p class="warning">⚠️ Normal: Slight redness, clear lymph fluid, and tenderness in the first days.</p>
+                    </div>
+
+                    <div class="care-section">
+                        <h3>📅 Healing Timeline</h3>
+                        <table class="healing-table">
+                            <tr>
+                                <th>Piercing</th>
+                                <th>Average Healing</th>
+                            </tr>
+                            <tr>
+                                <td>Earlobe</td>
+                                <td>4-6 weeks</td>
+                            </tr>
+                            <tr>
+                                <td>Cartilage</td>
+                                <td>3-6 months</td>
+                            </tr>
+                            <tr>
+                                <td>Nostril</td>
+                                <td>2-4 months</td>
+                            </tr>
+                            <tr>
+                                <td>Septum</td>
+                                <td>2-3 months</td>
+                            </tr>
+                            <tr>
+                                <td>Lip</td>
+                                <td>6-8 weeks</td>
+                            </tr>
+                            <tr>
+                                <td>Tongue</td>
+                                <td>4-6 weeks</td>
+                            </tr>
+                            <tr>
+                                <td>Navel</td>
+                                <td>6-12 months</td>
+                            </tr>
+                            <tr>
+                                <td>Nipple</td>
+                                <td>6-12 months</td>
+                            </tr>
+                            <tr>
+                                <td>Dermal</td>
+                                <td>2-3 months</td>
+                            </tr>
+                            <tr>
+                                <td>Genital (Male)</td>
+                                <td>4-8 weeks</td>
+                            </tr>
+                            <tr>
+                                <td>Genital (Female)</td>
+                                <td>4-10 weeks</td>
+                            </tr>
+                        </table>
+                        <p class="warning">⚠️ Anatomy matters. Ask your piercer for a personalized plan, especially for genital placements.</p>
+                    </div>
+
+                    <div class="care-section">
+                        <h3>📋 Aftercare by Piercing Type</h3>
+                        <p>Select a category to learn specific dos and don’ts:</p>
+                        
+                        <div class="care-accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-button">👂 Earlobe (Lobe)</button>
+                                <div class="accordion-content">
+                                    <h4>Clean:</h4>
+                                    <ul>
+                                        <li>Flush with sterile saline twice a day.</li>
+                                        <li>Shampoo last, then rinse the piercing with clean water.</li>
+                                        <li>Do not spin the jewelry.</li>
+                                    </ul>
+                                    <h4>Avoid:</h4>
+                                    <ul>
+                                        <li>Removing jewelry before 6 weeks.</li>
+                                        <li>Spray-on hair products hitting the piercing.</li>
+                                        <li>Sleeping directly on it.</li>
+                                    </ul>
+                                    <h4>Healing: 4-6 weeks</h4>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="accordion-button">👂 Cartilage (Helix, Tragus, Daith)</button>
+                                <div class="accordion-content">
+                                    <h4>Clean:</h4>
+                                    <ul>
+                                        <li>Use saline spray morning and night.</li>
+                                        <li>Dry with paper towels only; fibers can irritate.</li>
+                                        <li>Sleep with a travel pillow to keep pressure off.</li>
+                                    </ul>
+                                    <h4>Avoid:</h4>
+                                    <ul>
+                                        <li>Changing jewelry for at least 3 months.</li>
+                                        <li>Headphones or hats that rub.</li>
+                                        <li>Direct heat from hair tools.</li>
+                                    </ul>
+                                    <h4>Healing: 3-6 months</h4>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="accordion-button">👃 Nose (Nostril, Septum)</button>
+                                <div class="accordion-content">
+                                    <h4>Clean:</h4>
+                                    <ul>
+                                        <li>Saline compress after showers to loosen crusties.</li>
+                                        <li>Pat dry gently; never pick with nails.</li>
+                                        <li>Switch tissues for disposable paper towels.</li>
+                                    </ul>
+                                    <h4>Avoid:</h4>
+                                    <ul>
+                                        <li>Heavy makeup over the site.</li>
+                                        <li>Flipping septum jewelry during the first 4 weeks.</li>
+                                        <li>Sleeping face-down.</li>
+                                    </ul>
+                                    <h4>Healing: 2-4 months</h4>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="accordion-button">👄 Lip Piercings</button>
+                                <div class="accordion-content">
+                                    <h4>Clean:</h4>
+                                    <ul>
+                                        <li>Saline externally, alcohol-free mouthwash internally.</li>
+                                        <li>Drink cold water to reduce swelling.</li>
+                                        <li>Use new toothbrushes and avoid lipstick.</li>
+                                    </ul>
+                                    <h4>Avoid:</h4>
+                                    <ul>
+                                        <li>Smoking or spicy foods for 48 hours.</li>
+                                        <li>Kissing or sharing utensils.</li>
+                                        <li>Chewing on jewelry.</li>
+                                    </ul>
+                                    <h4>Healing: 6-10 weeks</h4>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="accordion-button">👅 Tongue</button>
+                                <div class="accordion-content">
+                                    <h4>Clean:</h4>
+                                    <ul>
+                                        <li>Rinse with alcohol-free mouthwash after each meal.</li>
+                                        <li>Stick to smoothies, soups, and soft foods for a few days.</li>
+                                        <li>Sleep slightly elevated to limit swelling.</li>
+                                    </ul>
+                                    <h4>Avoid:</h4>
+                                    <ul>
+                                        <li>Dairy and beer early on—they feed bacteria.</li>
+                                        <li>Playing with the jewelry.</li>
+                                        <li>Long conversations immediately afterwards.</li>
+                                    </ul>
+                                    <h4>Healing: 4-6 weeks</h4>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="accordion-button">✨ Navel</button>
+                                <div class="accordion-content">
+                                    <h4>Clean:</h4>
+                                    <ul>
+                                        <li>Trailing showers with saline rinse.</li>
+                                        <li>Wear breathable, high-waist clothing.</li>
+                                        <li>Use hypoallergenic bandages if clothing rubs.</li>
+                                    </ul>
+                                    <h4>Avoid:</h4>
+                                    <ul>
+                                        <li>Tight waistbands and synthetic fabrics.</li>
+                                        <li>Sleeping on your stomach.</li>
+                                        <li>Self-tanning products.</li>
+                                    </ul>
+                                    <h4>Healing: 6-12 months</h4>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="accordion-button">💎 Nipple & Body</button>
+                                <div class="accordion-content">
+                                    <h4>Clean:</h4>
+                                    <ul>
+                                        <li>Soak with warm saline compresses.</li>
+                                        <li>Air dry before re-covering with breathable fabric.</li>
+                                        <li>Swap to implant-grade titanium only.</li>
+                                    </ul>
+                                    <h4>Avoid:</h4>
+                                    <ul>
+                                        <li>Sleeping without support bras.</li>
+                                        <li>High-impact workouts for 4 weeks.</li>
+                                        <li>Sunbeds or tanning oils.</li>
+                                    </ul>
+                                    <h4>Healing: 6-12 months</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SUPPLIES -->
+            <section id="malzemeler" class="content-section">
+                <h2>🛍️ Supplies Checklist</h2>
+                <p class="section-intro">Stock these essentials before your appointment so aftercare stays stress-free.</p>
+                <div class="materials-grid">
+                    <div class="material-card">
+                        <h3>🧴 Cleaning Staples</h3>
+                        <ul>
+                            <li><strong>Non-iodized Sea Salt:</strong> Use to mix your own sterile saline.</li>
+                            <li><strong>Sterile Saline Spray:</strong> Pharmacy staple for on-the-go cleaning.</li>
+                            <li><strong>Antibacterial Soap:</strong> For hands only, not the piercing.</li>
+                            <li><strong>Disposable Paper Towels:</strong> Lint-free drying.</li>
+                            <li><strong>Cotton Swabs / Gauze:</strong> Apply saline without rubbing.</li>
+                        </ul>
+                        <p class="warning">💰 Estimated budget: 15-20 USD for a full kit.</p>
+                    </div>
+
+                    <div class="material-card">
+                        <h3>💍 Jewelry Materials</h3>
+                        <ul>
+                            <li><strong>Titanium (ASTM F136):</strong> Hypoallergenic, implant-grade.</li>
+                            <li><strong>Niobium:</strong> Great for sensitive clients.</li>
+                            <li><strong>14k+ Gold:</strong> For healed piercings only.</li>
+                            <li><strong>Bioplast / PTFE:</strong> Flexible option for MRIs and pregnancy.</li>
+                            <li><strong>Surgical Steel (316LVM):</strong> Economical once you’re healed.</li>
+                        </ul>
+                    </div>
+
+                    <div class="material-card">
+                        <h3>🧊 Comfort Tools</h3>
+                        <ul>
+                            <li>Reusable ice packs for swelling.</li>
+                            <li>Travel pillow to sleep without pressure.</li>
+                            <li>Breathable masks when getting a nose piercing.</li>
+                            <li>Soft bristle toothbrush for oral piercings.</li>
+                            <li>Saline wipes for discreet maintenance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INSIGHTS -->
+            <section id="gercekler" class="content-section">
+                <h2>💡 Piercing Insights</h2>
+                
+                <div class="info-box">
+                    <p><strong>Piercings are stunning accessories—but only when paired with professional technique, sterile tools, and thoughtful aftercare. Your anatomy dictates the rules; listen to your piercer and your body.</strong></p>
+                </div>
+
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <h3>✅ Positives</h3>
+                        <ul>
+                            <li>Personal expression and confidence boost.</li>
+                            <li>High-quality jewelry (titanium, gold) lasts for years.</li>
+                            <li>Most piercings can be hidden for professional settings.</li>
+                            <li>Properly healed piercings handle workouts and swimming.</li>
+                        </ul>
+                    </div>
+
+                    <div class="fact-card danger">
+                        <h3>⚠️ Risks</h3>
+                        <ul>
+                            <li>Infections from poor hygiene or low-grade jewelry.</li>
+                            <li>Scar tissue or keloids if you’re genetically prone.</li>
+                            <li>Rejection on surface piercings from friction.</li>
+                            <li>Extended healing times on cartilage and nipples.</li>
+                        </ul>
+                    </div>
+
+                    <div class="fact-card">
+                        <h3>✅ Piercing Truths</h3>
+                        <ul>
+                            <li>Pain is temporary; most piercings take seconds.</li>
+                            <li>Healing schedules aren’t suggestions—they’re requirements.</li>
+                            <li>Professional piercers will refuse unsafe requests.</li>
+                        </ul>
+                    </div>
+
+                    <div class="fact-card danger">
+                        <h3>❌ Myths</h3>
+                        <ul>
+                            <li>“Guns are cleaner than needles.” False—guns can’t be sterilized.</li>
+                            <li>“Spin the jewelry so it doesn’t stick.” False—it damages tissue.</li>
+                            <li>“Salt water from the ocean is the same as saline.” False—oceans have bacteria.</li>
+                            <li>“Alcohol cleans better.” False—it delays healing.</li>
+                        </ul>
+                    </div>
+
+                    <div class="fact-card">
+                        <h3>🧠 Fun Facts</h3>
+                        <ul>
+                            <li>Otzi the Iceman (3300 BCE) had stretched ear piercings.</li>
+                            <li>Egyptian pharaohs reserved navel piercings for royalty.</li>
+                            <li>Pirates believed ear piercings improved eyesight.</li>
+                            <li>Daith piercings and migraines? Anecdotal only.</li>
+                        </ul>
+                    </div>
+
+                    <div class="fact-card">
+                        <h3>⚠️ Critical Reminders</h3>
+                        <ul>
+                            <li>No new piercings during pregnancy.</li>
+                            <li>Consult your doctor if you take blood thinners.</li>
+                            <li>Have diabetes or immune concerns? Prior medical clearance is a must.</li>
+                            <li>Always disclose allergies, especially to nickel or latex.</li>
+                        </ul>
+                    </div>
+
+                    <div class="fact-card">
+                        <h3>📈 Stats</h3>
+                        <ul>
+                            <li>83% of adults worldwide have at least one piercing.</li>
+                            <li>Earlobes remain the most common piercing (~72%).</li>
+                            <li>Complication rate is below 10% with proper aftercare.</li>
+                            <li>Average full healing time: 6-8 weeks (cartilage excluded).</li>
+                        </ul>
+                    </div>
+
+                    <div class="fact-card">
+                        <h3>🎨 Cultural Lens</h3>
+                        <ul>
+                            <li>India: Nostril piercings symbolize fertility and marriage.</li>
+                            <li>Ethiopia: Lip plates signal tribal status.</li>
+                            <li>Maori: Facial piercings honor ancestry.</li>
+                            <li>Thailand: Septum piercings signify spiritual courage.</li>
+                        </ul>
+                    </div>
+
+                    <div class="fact-card">
+                        <h3>🏥 WHO Guidance</h3>
+                        <p><strong>The World Health Organization emphasizes infection control for all body art: sterile instruments, trained professionals, and detailed client education.</strong></p>
+                        <ul>
+                            <li>Single-use needles and properly autoclaved tools only.</li>
+                            <li>Studios must explain health risks and obtain consent.</li>
+                            <li>Practitioners should understand anatomy and when to refuse service.</li>
+                            <li>Clients must seek medical care if infection signs appear.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>💭 Remember</h3>
+                    <p>A piercing is a collaboration between you and your artist. Respect the process, follow the plan, and your body will reward you with healed, beautiful jewelry.</p>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="sss" class="content-section">
+                <h2>❓ Frequently Asked Questions</h2>
+                
+                <div class="faq">
+                    <div class="faq-item">
+                        <h3>💎 What is a professional piercing?</h3>
+                        <p>A single-use needle, sterilized tools, and jewelry designed for healing. Mall guns and butterfly-back earrings do not meet professional standards.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>📌 Which piercings are trending?</h3>
+                        <p>Constellation ear projects, stacked lobes, septums, philtrums, navels, dermals, and inverse nipples are hot right now.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🔄 Do piercings close?</h3>
+                        <p>Fresh piercings can shrink within hours; even healed ones may close if jewelry stays out for days. Keep jewelry in unless instructed otherwise.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🎂 Can minors get pierced?</h3>
+                        <p>Most countries require a parent or legal guardian plus paperwork for anyone under 18. Studios must follow local laws.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>💍 Can I use my own earrings?</h3>
+                        <p>No. Personal jewelry may not be sterile or implant-safe. Trust your piercer’s curated jewelry for initial installs.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🔫 Needle vs. gun?</h3>
+                        <p>Needles only. Guns can’t be sterilized, crush tissue, and increase infection risk. Professional studios never use piercing guns.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>😣 How painful is it?</h3>
+                        <p>Less than you expect. Most piercings take a deep breath and two seconds. Anxiety usually hurts more than the piercing.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🦠 Will I get an infection?</h3>
+                        <p>Not if you choose a licensed studio and respect aftercare. Hygiene is everything.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>✨ Which materials are safe?</h3>
+                        <p>Implant-grade titanium, niobium, high-karat gold, bioplast/PTFE. Avoid mystery metals and nickel-heavy alloys.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🔄 When can I change jewelry?</h3>
+                        <p>Once the piercing is fully healed. Let your piercer handle the first change to avoid trauma.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>😴 Can I sleep on it?</h3>
+                        <p>No for fresh piercings. Pressure can warp angles and delay healing. Use a travel pillow or change sleeping positions.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🎯 How many piercings can I get at once?</h3>
+                        <p>Two to three per session is the sweet spot. Your immune system should focus on a manageable workload.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🏥 What should I look for in a studio?</h3>
+                        <p>Sterile setup, licensing, experience with your anatomy, and artists who welcome questions.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>💰 How much do piercings cost?</h3>
+                        <p>Varies by city, jewelry, and piercer experience. Budget 50-150 USD per piercing including jewelry.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🔧 How do I remove jewelry?</h3>
+                        <p>Wash hands, support both ends, and loosen gently. If it sticks, visit your piercer—don’t force it.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>💊 Can I take painkillers?</h3>
+                        <p>Avoid blood thinners like aspirin or ibuprofen beforehand. If needed, acetaminophen is the safer option—ask your piercer first.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🏊 When can I swim?</h3>
+                        <p>Wait at least 4-6 weeks for pools and 2 months for natural water. Bacteria can derail healing.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🚿 Any shower tips?</h3>
+                        <p>Let clean water rinse off soap residue, then dry gently. Avoid loofahs and harsh products.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🤰 Is pregnancy a concern?</h3>
+                        <p>Avoid new piercings; hormones slow healing. Switch belly jewelry to flexible PTFE if you’re already pierced.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🏥 MRI friendly?</h3>
+                        <p>Remove metal jewelry before scans. Ask for plastic retainers if removal isn’t possible.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🩹 What about keloids?</h3>
+                        <p>If you have a family history, discuss it beforehand. Keloids require medical care—don’t wait.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>💉 Do I need bloodwork?</h3>
+                        <p>Not usually, but disclose any bloodborne illnesses or medications. Studios follow strict hygiene protocols.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🎤 Will tongue piercings affect speech?</h3>
+                        <p>Your speech will sound different for a week or two. Most people adapt quickly.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>🎸 Can I play instruments?</h3>
+                        <p>Wind instruments may need a short break. Strings, percussion, and keys are fine.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>🏥 Choosing a Piercer</h3>
+                    <ul>
+                        <li>Licensed studio with sterilization log.</li>
+                        <li>Single-use needles—no guns.</li>
+                        <li>Implant-grade starter jewelry.</li>
+                        <li>Clear aftercare instructions and consent forms.</li>
+                        <li>Portfolio that matches your style.</li>
+                    </ul>
+                    <p class="warning">⚠️ Walk away if they refuse to answer questions or downplay hygiene.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>📞 Emergency Contacts</h3>
+                    <p>If you suspect infection or trauma:</p>
+                    <ul>
+                        <li>Call your piercer for guidance.</li>
+                        <li>Seek urgent care or ER support.</li>
+                        <li>Emergency services: 112/911 depending on your location.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- TRACKER -->
+            <section id="takip" class="content-section">
+                <h2>📝 Personal Piercing Tracker</h2>
+                
+                <div class="tracker-container">
+                    <div class="tracker-intro">
+                        <p>Track the healing story of every piercing you own. Log placement details, dates, studios, and custom notes.</p>
+                    </div>
+
+                    <button id="add-piercing-btn" class="add-piercing-btn">
+                        ➕ Add Piercing
+                    </button>
+
+                    <div class="export-buttons">
+                        <button id="export-json-btn" class="btn-export">
+                            💾 Export JSON
+                        </button>
+                        <button id="export-csv-btn" class="btn-export btn-export-secondary">
+                            📊 Export CSV
+                        </button>
+                    </div>
+
+                    <div id="piercing-form" class="piercing-form hidden">
+                        <h3>Add a Piercing</h3>
+                        
+                        <div class="form-group">
+                            <label>Piercing Type *</label>
+                            <select id="piercing-type">
+                                <option value="">Choose...</option>
+                                <option value="Earlobe">Earlobe</option>
+                                <option value="Helix">Helix</option>
+                                <option value="Tragus">Tragus</option>
+                                <option value="Daith">Daith</option>
+                                <option value="Industrial">Industrial</option>
+                                <option value="Nostril">Nostril</option>
+                                <option value="Septum">Septum</option>
+                                <option value="Labret">Labret</option>
+                                <option value="Monroe/Madonna">Monroe/Madonna</option>
+                                <option value="Medusa">Medusa</option>
+                                <option value="Tongue">Tongue</option>
+                                <option value="Navel">Navel</option>
+                                <option value="Nipple">Nipple</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Placement</label>
+                            <input type="text" id="piercing-location" placeholder="e.g., Right helix, left nostril...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date *</label>
+                            <input type="date" id="piercing-date">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Piercer / Studio</label>
+                            <input type="text" id="piercing-piercer" placeholder="Piercer or studio name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <textarea id="piercing-notes" rows="3" placeholder="Jewelry material, aftercare wins, reactions..."></textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button id="save-piercing-btn" class="btn-save">✅ Save</button>
+                            <button id="cancel-piercing-btn" class="btn-cancel">❌ Cancel</button>
+                        </div>
+                    </div>
+
+                    <div id="piercing-list" class="piercing-list"></div>
+
+                    <div id="empty-state" class="empty-state">
+                        <div class="empty-icon">💉</div>
+                        <h3>No piercings logged yet</h3>
+                        <p>Tap “Add Piercing” to start your collection.</p>
+                    </div>
+
+                    <div class="care-tips">
+                        <h3>💡 Quick Tips</h3>
+                        <ul>
+                            <li>Clean with sterile saline twice a day.</li>
+                            <li>Hands off unless you’re cleaning.</li>
+                            <li>No pools, oceans, or saunas for the first 2 months.</li>
+                            <li>Don’t twist jewelry out of boredom.</li>
+                            <li>Avoid alcohol or peroxide—they slow healing.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>💉 PiercingGuide is educational only and never replaces medical advice.</p>
+            <p>Always consult a professional piercer for personalized care.</p>
+        </footer>
+    </div>
+
+    <script src="script.js?v=11"></script>
+</body>
+</html>

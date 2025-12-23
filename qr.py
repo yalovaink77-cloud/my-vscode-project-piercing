@@ -1,8 +1,15 @@
-from flask import Flask, request, jsonify, render_template_string
+from flask import Flask, request, jsonify, render_template, render_template_string
 import redis
+
+TOKEN_TTL_SECONDS = 300  # 5 dakika
 
 app = Flask(__name__)
 r = redis.Redis(host="localhost", port=6379)
+
+
+def is_token_used(token: str) -> bool:
+    """Redis'te token'in kullanılmış olup olmadığını kontrol et."""
+    return r.get(token) == b"used"
 
 
 @app.route("/redeem", methods=["POST"])
@@ -11,20 +18,20 @@ def redeem():
     if not token:
         return jsonify({"error": "Token zorunlu"}), 400
 
-    if r.get(token) == b"used":
+    if is_token_used(token):
         return jsonify({"error": "Token already used"}), 403
 
-    r.set(token, "used", ex=300)  # 5 dakika TTL
+    r.set(token, "used", ex=TOKEN_TTL_SECONDS)
     return jsonify({"success": "Redeemed"}), 200
 
 
 @app.route("/redeem/<token>", methods=["GET"])
 def redeem_page(token):
     """QR veya tarayıcı ile açılan HTML sayfası."""
-    was_used_before = r.get(token) == b"used"
+    was_used_before = is_token_used(token)
     if not was_used_before:
         # İlk kez kullanılıyorsa işaretle
-        r.set(token, "used", ex=300)
+        r.set(token, "used", ex=TOKEN_TTL_SECONDS)
 
     html = """
     <!DOCTYPE html>
@@ -59,6 +66,24 @@ def redeem_page(token):
     """
 
     return render_template_string(html, token=token, used=was_used_before)
+
+
+@app.route("/special")
+def special_page():
+    """Token ile açılan basit özel sayfa (GET /special?token=XYZ)."""
+    token = request.args.get("token")
+
+    if not token:
+        return "Token zorunlu", 400
+
+    # Token daha önce kullanılmışsa, sadece uyarı göster
+    if is_token_used(token):
+        return render_template("special.html", already_used=True)
+
+    # İlk kez kullanım: token'ı işaretle ve özel içeriği göster
+    r.set(token, "used", ex=TOKEN_TTL_SECONDS)
+
+    return render_template("special.html", already_used=False)
 
 
 if __name__ == "__main__":

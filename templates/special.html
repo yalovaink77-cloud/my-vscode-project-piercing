@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <title>Özel Sayfa · Piercing Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: rgba(15, 23, 42, 0.95);
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --danger: #f97373;
+      --danger-soft: rgba(248, 113, 113, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #1f2933 0, #020617 50%, #020617 100%);
+      color: var(--text);
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: var(--card);
+      border-radius: 18px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      backdrop-filter: blur(22px);
+      animation: fadeIn 0.35s ease-out;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.35), transparent 55%);
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .pill span.icon { font-size: 16px; }
+    h1 {
+      font-size: 26px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    p.lead {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .status-box {
+      margin-top: 10px;
+      padding: 14px 14px 13px;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .status-box.ok {
+      background: var(--accent-soft);
+      color: #bbf7d0;
+      border: 1px solid rgba(74, 222, 128, 0.45);
+    }
+    .status-box.used {
+      background: var(--danger-soft);
+      color: #fecaca;
+      border: 1px solid rgba(248, 113, 113, 0.5);
+    }
+    .status-icon { font-size: 18px; margin-top: 1px; }
+    .status-text strong { display: block; margin-bottom: 2px; }
+    .footer-note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .footer-note span.badge {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    a.main-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 13px;
+      text-decoration: none;
+      color: #a5b4fc;
+    }
+    a.main-link:hover { text-decoration: underline; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="pill">
+      <span class="icon">✨</span>
+      <span>Yalova Ink · Özel Erişim</span>
+    </div>
+
+    {% if already_used %}
+      <h1>Bu özel bağlantı zaten kullanıldı</h1>
+      <p class="lead">
+        Her QR kodu misafirlerimiz için tek seferlik tasarlandı. Aynı link tekrar
+        açıldığında güvenlik için özel içerik gösterilmiyor.
+      </p>
+      <div class="status-box used">
+        <span class="status-icon">⛔</span>
+        <div class="status-text">
+          <strong>Token kilitlendi.</strong>
+          Yeni bir QR veya davet bağlantısı alarak tekrar deneyebilirsin.
+        </div>
+      </div>
+    {% else %}
+      <h1>Özel sayfana hoş geldin</h1>
+      <p class="lead">
+        Bu sayfa yalnızca sana verilen QR kodu ile açılabilen, tek kullanımlık
+        bir özel sayfadır. İçerikte randevu sonu sürpriz kampanyalar, kişisel
+        bakım hatırlatmaları veya stüdyodan gizli notlar bulunabilir.
+      </p>
+      <div class="status-box ok">
+        <span class="status-icon">✅</span>
+        <div class="status-text">
+          <strong>Token onaylandı.</strong>
+          Bu bağlantı artık kullanılmış sayılıyor ve kısa süre içinde kendiliğinden
+          geçersiz hale gelecek.
+        </div>
+      </div>
+    {% endif %}
+
+    <a href="/" class="main-link">
+      <span>⟵ Ana siteye dön</span>
+    </a>
+
+    <div class="footer-note">
+      <span>Güvenli tek kullanımlık QR erişimi.</span>
+      <span class="badge">beta</span>
+    </div>
+  </main>
+</body>
+</html>

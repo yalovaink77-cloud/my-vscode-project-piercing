@@ -276,7 +276,7 @@ h2 {
     font-style: italic;
 }
 
-/* ACI SEVİYELERİ */
+/* PAIN MAP */
 .pain-levels {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -376,7 +376,7 @@ h2 {
     font-size: 1.3em;
 }
 
-/* PİERCİNG TÜRLERİ */
+/* PIERCING TYPES */
 .piercing-category {
     margin: 40px 0;
     padding: 30px;
@@ -423,7 +423,7 @@ h2 {
     color: #667eea;
 }
 
-/* BAKIM REHBERİ */
+/* AFTERCARE GUIDE */
 .care-guide {
     max-width: 900px;
     margin: 0 auto;
@@ -535,7 +535,7 @@ h2 {
 }
 
 /* ========================================
-   KİŞİSEL TAKİP BÖLÜMÜ STİLLERİ
+    PERSONAL TRACKER STYLES
 ======================================== */
 
 .tracker-container {
@@ -557,7 +557,7 @@ h2 {
     font-size: 1.05em;
 }
 
-/* Piercing Ekle Butonu */
+/* Add Piercing Button */
 .add-piercing-btn {
     width: 100%;
     padding: 15px;
@@ -582,7 +582,7 @@ h2 {
     transform: translateY(0);
 }
 
-/* Piercing Formu */
+/* Tracker Form */
 .piercing-form {
     background: #f8f9fa;
     padding: 25px;
@@ -690,7 +690,7 @@ h2 {
     box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
 }
 
-/* Piercing Listesi */
+/* Piercing Cards */
 .piercing-list {
     display: grid;
     gap: 20px;
@@ -739,7 +739,7 @@ h2 {
     transform: translateY(-4px);
 }
 
-/* Kart renk varyasyonları (türe göre) */
+/* Card color variations */
 .piercing-card--ear {
     border-color: transparent;
     background: linear-gradient(180deg, rgba(108, 99, 255, 0.12) 0%, #ffffff 70%);
@@ -944,7 +944,7 @@ h2 {
     color: #c62828;
 }
 
-/* Boş Durum */
+/* Empty state */
 .empty-state {
     text-align: center;
     padding: 60px 20px;
@@ -972,7 +972,7 @@ h2 {
     color: #999;
 }
 
-/* Dışa aktarma butonları */
+/* Export buttons */
 .export-buttons {
     display: flex;
     gap: 10px;
@@ -1011,7 +1011,7 @@ h2 {
     color: #fff;
 }
 
-/* Bakım İpuçları */
+/* Care tips block */
 .care-tips {
     background: linear-gradient(135deg, #fff5e6, #ffe4cc);
     padding: 25px;
@@ -1038,7 +1038,7 @@ h2 {
     line-height: 1.6;
 }
 
-/* Responsive Tasarım */
+/* Responsive layout */
 @media (max-width: 768px) {
     .piercing-card-header {
         flex-direction: column;
