@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Piercing studio account
+model Studio {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  password      String   // bcrypt hashed
+  name          String
+  isPremium     Boolean  @default(false)
+  premiumUntil  DateTime?
+  stripeCustomerId String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  qrCodes       QRCode[]
+  customers     Customer[]
+  reminders     ScheduledReminder[]
+}
+
+// QR Code for a specific piercing
+model QRCode {
+  id            String   @id @default(uuid())
+  studioId      String
+  customerId    String?
+  code          String   @unique // The actual QR code data/URL
+  piercingType  String   // e.g., "ear", "nose", "lip"
+  piercingLocation String? // Specific location details
+  jewelryType   String?
+  jewelryMaterial String?
+  aftercareInstructions String @db.Text
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  studio        Studio   @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  customer      Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  reminders     ScheduledReminder[]
+
+  @@index([studioId])
+  @@index([customerId])
+  @@index([code])
+}
+
+// Customer information
+model Customer {
+  id            String   @id @default(uuid())
+  studioId      String
+  name          String
+  email         String?
+  phone         String?
+  fcmToken      String?  // Firebase Cloud Messaging token for push notifications
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  studio        Studio   @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  qrCodes       QRCode[]
+  reminders     ScheduledReminder[]
+
+  @@index([studioId])
+  @@index([email])
+}
+
+// Scheduled reminders for aftercare
+model ScheduledReminder {
+  id            String   @id @default(uuid())
+  studioId      String
+  customerId    String
+  qrCodeId      String
+  message       String   @db.Text
+  scheduledFor  DateTime
+  sentAt        DateTime?
+  status        String   @default("pending") // pending, sent, failed
+  attempts      Int      @default(0)
+  lastAttempt   DateTime?
+  error         String?  @db.Text
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  studio        Studio   @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  customer      Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  qrCode        QRCode   @relation(fields: [qrCodeId], references: [id], onDelete: Cascade)
+
+  @@index([studioId])
+  @@index([customerId])
+  @@index([status])
+  @@index([scheduledFor])
+}
+
+// Failed jobs tracking (Dead Letter Queue)
+model FailedJob {
+  id            String   @id @default(uuid())
+  jobType       String   // e.g., "reminder", "email", "sms"
+  jobData       String   @db.Text // JSON stringified job data
+  error         String   @db.Text
+  stackTrace    String?  @db.Text
+  attempts      Int      @default(1)
+  failedAt      DateTime @default(now())
+  retriedAt     DateTime?
+  status        String   @default("failed") // failed, retrying, resolved
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([jobType])
+  @@index([status])
+  @@index([failedAt])
+}
