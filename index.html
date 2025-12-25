@@ -4,16 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piercing Rehberi - Kapsamlı Bilgi Merkezi</title>
+    <script>
+        (function() {
+            const STORAGE_KEY = 'preferredLanguage';
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const forcedLang = params.get('lang');
+
+                if (forcedLang === 'tr') {
+                    localStorage.setItem(STORAGE_KEY, 'tr');
+                    params.delete('lang');
+                    const newQuery = params.toString();
+                    const newUrl = window.location.pathname + (newQuery ? '?' + newQuery : '') + window.location.hash;
+                    window.history.replaceState({}, '', newUrl);
+                    return;
+                }
+
+                if (forcedLang === 'en') {
+                    localStorage.setItem(STORAGE_KEY, 'en');
+                }
+
+                const preferred = localStorage.getItem(STORAGE_KEY);
+                if (!preferred || preferred === 'en') {
+                    localStorage.setItem(STORAGE_KEY, 'en');
+                    params.delete('lang');
+                    const remainingQuery = params.toString();
+                    const nextUrl = 'piercing-guide-en/index.html' + (remainingQuery ? '?' + remainingQuery : '') + window.location.hash;
+                    window.location.replace(nextUrl);
+                }
+            } catch (error) {
+                console.warn('Language preference redirect failed', error);
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="language-switch" aria-label="Dil seçimi">
-            <a class="language-switch__option is-active" href="index.html" aria-current="page">
+            <a class="language-switch__option is-active" href="index.html?lang=tr" aria-current="page">
                 <span class="flag">🇹🇷</span>
                 <span class="code">TR</span>
             </a>
-            <a class="language-switch__option" href="piercing-guide-en/index.html">
+            <a class="language-switch__option" href="piercing-guide-en/index.html?lang=en">
                 <span class="flag">🇬🇧</span>
                 <span class="code">EN</span>
             </a>

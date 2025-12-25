@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+    try {
+        localStorage.setItem('preferredLanguage', 'tr');
+    } catch (error) {
+        console.warn('Dil tercihi kaydedilemedi', error);
+    }
     // Butonları seç
     const btnAci = document.getElementById('btn-aci');
     const btnTurler = document.getElementById('btn-turler');

@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
+    try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('lang') === 'en') {
+            params.delete('lang');
+            const cleanedQuery = params.toString();
+            const newUrl = window.location.pathname + (cleanedQuery ? '?' + cleanedQuery : '') + window.location.hash;
+            window.history.replaceState({}, '', newUrl);
+        }
+        localStorage.setItem('preferredLanguage', 'en');
+    } catch (error) {
+        console.warn('Unable to persist language preference', error);
+    }
     // Navigation buttons
     const btnPain = document.getElementById('btn-aci');
     const btnTypes = document.getElementById('btn-turler');
